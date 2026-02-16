@@ -48,22 +48,25 @@ header {
 /* Navbar container */
 
 .navbar {
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
     background-color: #3d3d3d;
     font-family: Arial;
-}
+  }
 
 
 /* Links inside the navbar */
 
 .navbar a {
-    float: left;
+    display: inline-block;
     font-size: 16px;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-}
+  }
 
 .navbar a:hover {
     text-decoration: underline;
@@ -78,9 +81,9 @@ header a {
 /* The dropdown container */
 
 .dropdown {
-    float: left;
-    overflow: hidden;
-}
+    position: relative;   /* 关键：让 dropdown-content 相对它定位 */
+  }
+  
 
 
 /* Dropdown button */
@@ -89,62 +92,60 @@ header a {
     font-size: 16px;
     border: none;
     outline: none;
-    color: white;
-    padding: 14px 16px;
+    padding: 0;           /* 由里面的 a 来撑开 */
     background-color: inherit;
-}
+  }
 
 .dropdown .dropbtn a {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 0;
-    background-color: inherit;
+  display: inline-block;
+  padding: 14px 16px;
+  color: white;
+  text-decoration: none;
 }
 
-
-/* Add a red background color to navbar links on hover */
-
+/* Hover */
 .navbar a:hover,
-.dropdown:hover .dropbtn {
-    background-color: #555;
+.dropdown:hover .dropbtn a {
+  background-color: #555;
+  text-decoration: underline;
 }
 
-
-/* Dropdown content (hidden by default) */
-
+/* Dropdown content */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  min-width: 220px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
 }
-
-
-/* Links inside the dropdown */
 
 .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+  color: black;
+  padding: 12px 16px;
+  display: block;
+  text-align: left;
 }
-
-
-/* Add a grey background color to dropdown links on hover */
 
 .dropdown-content a:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
-
-/* Show the dropdown menu on hover */
-
+/* Show dropdown */
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
+}
+
+/* Apply Now 右侧按钮（可选） */
+.nav-cta {
+  margin-left: auto;         /* 推到最右 */
+  background: #a51417;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.nav-cta:hover {
+  background: #8f1214;
 }
